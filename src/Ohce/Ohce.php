@@ -44,7 +44,9 @@ class Ohce
             }
         }
         $inputLine = $this->readInput();
-        $this->writeOutput(sprintf('Adios %s', $this->name));
+        if($this->hasStopBeenRequested($inputLine)) {
+            $this->writeOutput(sprintf('Adios %s', $this->name));
+        }
 
     }
 
@@ -82,5 +84,14 @@ class Ohce
     private function isPalindrome($inputLine, $reversed)
     {
         return $inputLine === $reversed;
+    }
+
+    /**
+     * @param $inputLine
+     * @return bool
+     */
+    private function hasStopBeenRequested($inputLine)
+    {
+        return $inputLine === 'Stop!';
     }
 }
