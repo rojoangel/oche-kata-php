@@ -35,18 +35,16 @@ class Ohce
     {
         $this->output->writeLine(sprintf('¡Buenas días %s!', $this->name));
 
-        for ($i = 0; $i < 3; $i++) {
-            $inputLine = $this->readInput();
+        $inputLine = $this->readInput();
+        while(!$this->hasStopBeenRequested($inputLine)) {
             $reversed = $this->reverse($inputLine);
             $this->writeOutput($reversed);
             if ($this->isPalindrome($inputLine, $reversed)) {
                 $this->writeOutput('¡Bonita palabra!');
             }
+            $inputLine = $this->readInput();
         }
-        $inputLine = $this->readInput();
-        if($this->hasStopBeenRequested($inputLine)) {
-            $this->writeOutput(sprintf('Adios %s', $this->name));
-        }
+        $this->writeOutput(sprintf('Adios %s', $this->name));
 
     }
 
