@@ -37,11 +37,7 @@ class Ohce
 
         $inputLine = $this->readInput();
         while(!$this->hasStopBeenRequested($inputLine)) {
-            $reversed = $this->reverse($inputLine);
-            $this->writeOutput($reversed);
-            if ($this->isPalindrome($inputLine, $reversed)) {
-                $this->writeOutput('¡Bonita palabra!');
-            }
+            $this->writeReversedInput($inputLine);
             $inputLine = $this->readInput();
         }
         $this->waveOffUser();
@@ -100,5 +96,17 @@ class Ohce
     private function waveOffUser()
     {
         $this->writeOutput(sprintf('Adios %s', $this->name));
+    }
+
+    /**
+     * @param $inputLine
+     */
+    private function writeReversedInput($inputLine)
+    {
+        $reversed = $this->reverse($inputLine);
+        $this->writeOutput($reversed);
+        if ($this->isPalindrome($inputLine, $reversed)) {
+            $this->writeOutput('¡Bonita palabra!');
+        }
     }
 }
