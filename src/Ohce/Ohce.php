@@ -44,8 +44,7 @@ class Ohce
             }
             $inputLine = $this->readInput();
         }
-        $this->writeOutput(sprintf('Adios %s', $this->name));
-
+        $this->waveOffUser();
     }
 
     /**
@@ -96,5 +95,10 @@ class Ohce
     private function greetUser()
     {
         $this->output->writeLine(sprintf('¡Buenas días %s!', $this->name));
+    }
+
+    private function waveOffUser()
+    {
+        $this->writeOutput(sprintf('Adios %s', $this->name));
     }
 }
