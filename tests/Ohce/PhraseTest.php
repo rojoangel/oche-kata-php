@@ -30,7 +30,8 @@ class PhraseTest extends \PHPUnit_Framework_TestCase
      */
     public function isPalindromeProvider() {
         return [
-            ['abcdef', false]
+            ['abcdef', false],
+            ['oto', true]
         ];
     }
 

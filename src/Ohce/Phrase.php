@@ -32,6 +32,6 @@ class Phrase
 
     public function isPalindrome()
     {
-        return false;
+        return $this->reverse() == $this;
     }
 }
