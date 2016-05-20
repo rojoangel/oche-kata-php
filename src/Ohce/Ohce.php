@@ -32,9 +32,8 @@ class Ohce
     public function run()
     {
         $this->greetUser();
-
         $inputLine = $this->readInput();
-        while(!$this->hasStopBeenRequested($inputLine)) {
+        while(!$this->isStop($inputLine)) {
             $this->writeReversedInput($inputLine);
             $inputLine = $this->readInput();
         }
@@ -81,7 +80,7 @@ class Ohce
      * @param string $inputLine
      * @return bool
      */
-    private function hasStopBeenRequested($inputLine)
+    private function isStop($inputLine)
     {
         return $inputLine === 'Stop!';
     }
