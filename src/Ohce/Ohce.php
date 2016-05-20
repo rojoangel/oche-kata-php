@@ -93,8 +93,7 @@ class Ohce
     private function greetUser()
     {
         $greeting = 'Buenas tardes';
-        $time = $this->clock->getTime();
-        if ($time >= 6 && $time < 12) {
+        if ($this->isMorning()) {
             $greeting = 'Buenas días';
         }
         $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
@@ -115,5 +114,14 @@ class Ohce
         if ($this->isPalindrome($inputLine, $reversed)) {
             $this->writeOutput('¡Bonita palabra!');
         }
+    }
+
+    /**
+     * @return bool
+     */
+    private function isMorning()
+    {
+        $time = $this->clock->getTime();
+        return $time >= 6 && $time < 12;
     }
 }
