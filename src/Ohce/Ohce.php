@@ -42,7 +42,9 @@ class Ohce
         $inputLine = $this->readInput();
         $reversed = $this->reverse($inputLine);
         $this->writeOutput($reversed);
-        $this->writeOutput('¡Bonita palabra!');
+        if ($this->isPalindrome($inputLine, $reversed)) {
+            $this->writeOutput('¡Bonita palabra!');
+        }
 
     }
 
@@ -70,5 +72,15 @@ class Ohce
     private function writeOutput($reversed)
     {
         $this->output->writeLine($reversed);
+    }
+
+    /**
+     * @param $inputLine
+     * @param $reversed
+     * @return bool
+     */
+    private function isPalindrome($inputLine, $reversed)
+    {
+        return $inputLine === $reversed;
     }
 }
