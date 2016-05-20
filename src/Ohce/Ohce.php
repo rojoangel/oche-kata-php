@@ -33,7 +33,7 @@ class Ohce
 
     public function run()
     {
-        $this->output->writeLine(sprintf('¡Buenas días %s!', $this->name));
+        $this->greetUser();
 
         $inputLine = $this->readInput();
         while(!$this->hasStopBeenRequested($inputLine)) {
@@ -91,5 +91,10 @@ class Ohce
     private function hasStopBeenRequested($inputLine)
     {
         return $inputLine === 'Stop!';
+    }
+
+    private function greetUser()
+    {
+        $this->output->writeLine(sprintf('¡Buenas días %s!', $this->name));
     }
 }
