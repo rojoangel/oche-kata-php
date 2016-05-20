@@ -16,18 +16,22 @@ class OhceTest extends \PHPUnit_Framework_TestCase
 
         /** @var Input|MockObject $input */
         $input = $this->getMockBuilder(Input::class)->getMock();
-        $input->method('readLine')
+        $input->expects($this->exactly(2))
+            ->method('readLine')
             ->willReturnOnConsecutiveCalls(
-                'hola'
+                'hola',
+                'oto'
             );
 
         /** @var Console|MockObject $output */
         $output = $this->getMockBuilder(Console::class)->getMock();
-        $output->expects($this->exactly(2))
+        $output->expects($this->exactly(4))
             ->method("writeLine")
             ->withConsecutive(
                 [$this->equalTo(sprintf("¡Buenas días %s!", $name))],
-                [$this->equalTo("aloh")]
+                [$this->equalTo("aloh")],
+                [$this->equalTo("oto")],
+                [$this->equalTo("¡Bonita palabra!")]
             );
 
         $ohce = new Ohce($name, $output, $input);
