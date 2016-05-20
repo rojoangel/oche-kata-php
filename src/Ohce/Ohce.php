@@ -94,13 +94,17 @@ class Ohce
     {
         $time = $this->clock->getTime();
 
-        $greeting = 'Buenas tardes';
         if ($this->isMorning($time)) {
-            $greeting = 'Buenas días';
-        } else if ($this->isNight($time)) {
-            $greeting = 'Buenas noches';
+            $this->greetInTheMorning();
+            return;
         }
-        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
+
+        if ($this->isNight($time)) {
+            $this->greetInTheAfternoon();
+            return;
+        }
+
+        $this->greetInTheEvening();
     }
 
     private function waveOffUser()
@@ -136,5 +140,23 @@ class Ohce
     private function isNight($time)
     {
         return $time >= 20 || $time < 6;
+    }
+
+    private function greetInTheMorning()
+    {
+        $greeting = 'Buenas días';
+        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
+    }
+
+    private function greetInTheAfternoon()
+    {
+        $greeting = 'Buenas noches';
+        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
+    }
+
+    private function greetInTheEvening()
+    {
+        $greeting = 'Buenas tardes';
+        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
     }
 }
