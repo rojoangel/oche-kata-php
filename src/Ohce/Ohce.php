@@ -34,9 +34,9 @@ class Ohce
     public function run()
     {
         $this->output->writeLine(sprintf('¡Buenas días %s!', $this->name));
-        $inputLine = $this->input->readLine();
+        $inputLine = $this->readInput();
         $reversed = $this->reverse($inputLine);
-        $this->output->writeLine($reversed);
+        $this->writeOutput($reversed);
     }
 
     /**
@@ -46,5 +46,22 @@ class Ohce
     private function reverse($inputLine)
     {
         return strrev($inputLine);
+    }
+
+    /**
+     * @return string
+     */
+    private function readInput()
+    {
+        $inputLine = $this->input->readLine();
+        return $inputLine;
+    }
+
+    /**
+     * @param $reversed
+     */
+    private function writeOutput($reversed)
+    {
+        $this->output->writeLine($reversed);
     }
 }
