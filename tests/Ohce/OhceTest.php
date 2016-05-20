@@ -16,7 +16,10 @@ class OhceTest extends \PHPUnit_Framework_TestCase
 
         /** @var Input|MockObject $input */
         $input = $this->getMockBuilder(Input::class)->getMock();
-        $input->method('readLine')->willReturn('hola');
+        $input->method('readLine')
+            ->willReturnOnConsecutiveCalls(
+                'hola'
+            );
 
         /** @var Console|MockObject $output */
         $output = $this->getMockBuilder(Console::class)->getMock();
