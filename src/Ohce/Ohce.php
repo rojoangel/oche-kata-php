@@ -38,6 +38,9 @@ class Ohce
         $inputLine = $this->readInput();
         $reversed = $this->reverse($inputLine);
         $this->writeOutput($reversed);
+        if ($this->isPalindrome($inputLine, $reversed)) {
+            $this->writeOutput('¡Bonita palabra!');
+        }
 
         $inputLine = $this->readInput();
         $reversed = $this->reverse($inputLine);
