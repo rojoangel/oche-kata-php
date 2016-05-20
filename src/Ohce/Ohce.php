@@ -43,6 +43,9 @@ class Ohce
                 $this->writeOutput('¡Bonita palabra!');
             }
         }
+        $inputLine = $this->readInput();
+        $this->writeOutput(sprintf('Adios %s', $this->name));
+
     }
 
     /**
