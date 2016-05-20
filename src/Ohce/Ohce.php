@@ -92,9 +92,13 @@ class Ohce
 
     private function greetUser()
     {
+        $time = $this->clock->getTime();
+
         $greeting = 'Buenas tardes';
-        if ($this->isMorning()) {
+        if ($this->isMorning($time)) {
             $greeting = 'Buenas días';
+        } else if ($this->isNight($time)) {
+            $greeting = 'Buenas noches';
         }
         $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
     }
@@ -117,11 +121,20 @@ class Ohce
     }
 
     /**
+     * @param int $time
      * @return bool
      */
-    private function isMorning()
+    private function isMorning($time)
     {
-        $time = $this->clock->getTime();
         return $time >= 6 && $time < 12;
+    }
+
+    /**
+     * @param int $time
+     * @return bool
+     */
+    private function isNight($time)
+    {
+        return $time >= 20 || $time < 6;
     }
 }

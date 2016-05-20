@@ -90,4 +90,45 @@ class OhceTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testNightOhce()
+    {
+        $name = 'Pedro';
+
+        /** @var Input|MockObject $input */
+        $input = $this->getMockBuilder(Input::class)->getMock();
+        $input->expects($this->exactly(5))
+            ->method('readLine')
+            ->willReturnOnConsecutiveCalls(
+                'hello',
+                'abad',
+                'arroz a zorra',
+                'pots',
+                'Stop!'
+            );
+
+        /** @var Console|MockObject $output */
+        $output = $this->getMockBuilder(Console::class)->getMock();
+        $output->expects($this->exactly(7))
+            ->method("writeLine")
+            ->withConsecutive(
+                [$this->equalTo(sprintf("¡Buenas noches %s!", $name))],
+                [$this->equalTo("olleh")],
+                [$this->equalTo("daba")],
+                [$this->equalTo("arroz a zorra")],
+                [$this->equalTo("¡Bonita palabra!")],
+                [$this->equalTo("stop")],
+                [$this->equalTo("Adios Pedro")]
+            );
+
+        /** @var Clock|MockObject $clock */
+        $clock = $this->getMockBuilder(Clock::class)->getMock();
+        $clock->expects($this->once())
+            ->method('getTime')
+            ->willReturn(22);
+
+        $ohce = new Ohce($name, $output, $input, $clock);
+        $ohce->run();
+
+    }
+
 }
