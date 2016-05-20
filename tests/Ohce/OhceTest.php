@@ -38,7 +38,7 @@ class OhceTest extends \PHPUnit_Framework_TestCase
                 [$this->equalTo("Adios Pedro")]
             );
 
-        /** @var Clock|MockObject $output */
+        /** @var Clock|MockObject $clock */
         $clock = $this->getMockBuilder(Clock::class)->getMock();
         $clock->expects($this->once())
             ->method('getTime')
@@ -79,7 +79,7 @@ class OhceTest extends \PHPUnit_Framework_TestCase
                 [$this->equalTo("Adios Pedro")]
             );
 
-        /** @var Clock|MockObject $output */
+        /** @var Clock|MockObject $clock */
         $clock = $this->getMockBuilder(Clock::class)->getMock();
         $clock->expects($this->once())
             ->method('getTime')
