@@ -14,9 +14,9 @@ class Ohce
      */
     private $output;
 
-    /** @var Input  */
+    /** @var Input */
     private $input;
-    
+
     /** @var Clock */
     private $clock;
 
@@ -38,7 +38,7 @@ class Ohce
     {
         $this->greetUser();
         $inputLine = $this->readInput();
-        while(!$this->isStop($inputLine)) {
+        while (!$this->isStop($inputLine)) {
             $this->writeReversedInput($inputLine);
             $inputLine = $this->readInput();
         }
@@ -92,19 +92,8 @@ class Ohce
 
     private function greetUser()
     {
-        $time = $this->clock->getTime();
-
-        if ($this->isMorning($time)) {
-            $this->greetInTheMorning();
-            return;
-        }
-
-        if ($this->isNight($time)) {
-            $this->greetInTheAfternoon();
-            return;
-        }
-
-        $this->greetInTheEvening();
+        $greeting = $this->calculateGreeting($this->clock->getTime());
+        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
     }
 
     private function waveOffUser()
@@ -142,18 +131,20 @@ class Ohce
         return $time >= 20 || $time < 6;
     }
 
-    private function greetInTheMorning()
+    /**
+     * @param int $time
+     * @return string
+     */
+    private function calculateGreeting($time)
     {
-        $this->output->writeLine(sprintf('¡Buenas días %s!', $this->name));
-    }
+        if ($this->isMorning($time)) {
+            return 'Buenas días';
+        }
 
-    private function greetInTheAfternoon()
-    {
-        $this->output->writeLine(sprintf('¡Buenas noches %s!', $this->name));
-    }
+        if ($this->isNight($time)) {
+            return 'Buenas noches';
+        }
 
-    private function greetInTheEvening()
-    {
-        $this->output->writeLine(sprintf('¡Buenas tardes %s!', $this->name));
+        return 'Buenas tardes';
     }
 }
