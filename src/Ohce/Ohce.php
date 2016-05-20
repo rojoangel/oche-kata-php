@@ -144,19 +144,16 @@ class Ohce
 
     private function greetInTheMorning()
     {
-        $greeting = 'Buenas días';
-        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
+        $this->output->writeLine(sprintf('¡Buenas días %s!', $this->name));
     }
 
     private function greetInTheAfternoon()
     {
-        $greeting = 'Buenas noches';
-        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
+        $this->output->writeLine(sprintf('¡Buenas noches %s!', $this->name));
     }
 
     private function greetInTheEvening()
     {
-        $greeting = 'Buenas tardes';
-        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
+        $this->output->writeLine(sprintf('¡Buenas tardes %s!', $this->name));
     }
 }
