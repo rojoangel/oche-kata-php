@@ -16,17 +16,22 @@ class Ohce
 
     /** @var Input  */
     private $input;
+    
+    /** @var Clock */
+    private $clock;
 
     /**
      * @param string $name
      * @param Console $output
      * @param Input $input
+     * @param Clock $clock
      */
-    public function __construct($name, Console $output, Input $input)
+    public function __construct($name, Console $output, Input $input, Clock $clock)
     {
         $this->name = $name;
         $this->output = $output;
         $this->input = $input;
+        $this->clock = $clock;
     }
 
     public function run()
@@ -87,7 +92,12 @@ class Ohce
 
     private function greetUser()
     {
-        $this->output->writeLine(sprintf('¡Buenas días %s!', $this->name));
+        $greeting = 'Buenas tardes';
+        $time = $this->clock->getTime();
+        if ($time >= 6 && $time < 12) {
+            $greeting = 'Buenas días';
+        }
+        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
     }
 
     private function waveOffUser()
