@@ -32,6 +32,6 @@ class Phrase
 
     public function isPalindrome()
     {
-        return true;
+        return false;
     }
 }

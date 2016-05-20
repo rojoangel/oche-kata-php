@@ -14,11 +14,24 @@ class PhraseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(new Phrase('fedcba'), $phrase->reverse());
     }
 
-    public function testIsPalindrome()
+    /**
+     * @dataProvider isPalindromeProvider
+     * @param string $text
+     * @param bool $expectedIsPalindrome
+     */
+    public function testIsPalindrome($text, $expectedIsPalindrome)
     {
-        $phrase = new Phrase('abcdef');
-        $this->assertTrue($phrase->isPalindrome());
+        $phrase = new Phrase($text);
+        $this->assertEquals($expectedIsPalindrome, $phrase->isPalindrome());
     }
 
+    /**
+     * @return array
+     */
+    public function isPalindromeProvider() {
+        return [
+            ['abcdef', false]
+        ];
+    }
 
 }
