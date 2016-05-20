@@ -29,4 +29,9 @@ class Phrase
     {
         return sprintf("Phrase { 'text': %s }, $this->text");
     }
+
+    public function isPalindrome()
+    {
+        return true;
+    }
 }
