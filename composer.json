@@ -1,0 +1,21 @@
+{
+    "name": "rojoa/ohce-kata-php",
+    "description": "Ohce Kata",
+    "require": {
+        "php": "^5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.7"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Ohce\\": ["src/Ohce", "tests/Ohce"]
+        }
+    },
+    "authors": [
+        {
+            "name": "rojoangel",
+            "email": "rojo.angel@gmail.com"
+        }
+    ]
+}
