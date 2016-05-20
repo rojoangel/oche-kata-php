@@ -6,9 +6,7 @@ namespace Ohce;
 
 class Ohce
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     private $name;
 
     /**
@@ -45,7 +43,7 @@ class Ohce
 
     /**
      * @param string $inputLine
-     * @return string mixed
+     * @return string
      */
     private function reverse($inputLine)
     {
@@ -62,7 +60,7 @@ class Ohce
     }
 
     /**
-     * @param $reversed
+     * @param string $reversed
      */
     private function writeOutput($reversed)
     {
@@ -70,8 +68,8 @@ class Ohce
     }
 
     /**
-     * @param $inputLine
-     * @param $reversed
+     * @param string $inputLine
+     * @param string $reversed
      * @return bool
      */
     private function isPalindrome($inputLine, $reversed)
@@ -80,7 +78,7 @@ class Ohce
     }
 
     /**
-     * @param $inputLine
+     * @param string $inputLine
      * @return bool
      */
     private function hasStopBeenRequested($inputLine)
@@ -99,7 +97,7 @@ class Ohce
     }
 
     /**
-     * @param $inputLine
+     * @param string $inputLine
      */
     private function writeReversedInput($inputLine)
     {
