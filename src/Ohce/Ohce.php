@@ -39,7 +39,7 @@ class Ohce
         $this->greetUser();
         $inputPhrase = $this->readInput();
         while (!$inputPhrase->isStop()) {
-            $this->writeReversedInput($inputPhrase->getText());
+            $this->writeReversedInput($inputPhrase);
             $inputPhrase = $this->readInput();
         }
         $this->waveOffUser();
@@ -54,11 +54,11 @@ class Ohce
     }
 
     /**
-     * @param string $reversed
+     * @param Phrase $output
      */
-    private function writeOutput($reversed)
+    private function writeOutput(Phrase $output)
     {
-        $this->output->writeLine($reversed);
+        $this->output->writeLine($output->getText());
     }
 
     private function greetUser()
@@ -69,19 +69,17 @@ class Ohce
 
     private function waveOffUser()
     {
-        $this->writeOutput(sprintf('Adios %s', $this->name));
+        $this->writeOutput(new Phrase(sprintf('Adios %s', $this->name)));
     }
 
     /**
-     * @param string $inputLine
+     * @param Phrase $inputPhrase
      */
-    private function writeReversedInput($inputLine)
+    private function writeReversedInput(Phrase $inputPhrase)
     {
-        $inputPhrase = new Phrase($inputLine);
-        $reversed = $inputPhrase->reverse()->getText();
-        $this->writeOutput($reversed);
+        $this->writeOutput($inputPhrase->reverse());
         if ($inputPhrase->isPalindrome()) {
-            $this->writeOutput('¡Bonita palabra!');
+            $this->writeOutput(new Phrase('¡Bonita palabra!'));
         }
     }
 
