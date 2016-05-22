@@ -37,23 +37,20 @@ class Ohce
     public function run()
     {
         $this->greetUser();
-        $inputLine = $this->readInput();
-        $inputPhrase = new Phrase($inputLine);
+        $inputPhrase = $this->readInput();
         while (!$inputPhrase->isStop()) {
-            $this->writeReversedInput($inputLine);
-            $inputLine = $this->readInput();
-            $inputPhrase = new Phrase($inputLine);
+            $this->writeReversedInput($inputPhrase->getText());
+            $inputPhrase = $this->readInput();
         }
         $this->waveOffUser();
     }
 
     /**
-     * @return string
+     * @return Phrase
      */
     private function readInput()
     {
-        $inputLine = $this->input->readLine();
-        return $inputLine;
+        return new Phrase($this->input->readLine());
     }
 
     /**
@@ -63,7 +60,7 @@ class Ohce
     {
         $this->output->writeLine($reversed);
     }
-    
+
     private function greetUser()
     {
         $greeting = $this->calculateGreeting($this->clock->getTime());
