@@ -30,6 +30,10 @@ class Greeter
             return sprintf('¡Buenas días %s!', $userName);
         }
 
+        if ($this->isNight($time)) {
+            return sprintf('¡Buenas noches %s!', $userName);
+        }
+
         return sprintf('¡Buenas tardes %s!', $userName);
     }
 
@@ -40,6 +44,15 @@ class Greeter
     private function isMorning($time)
     {
         return $time >= 6 && $time < 12;
+    }
+
+    /**
+     * @param int $time
+     * @return bool
+     */
+    private function isNight($time)
+    {
+        return $time >= 20 || $time < 6;
     }
 
 }
