@@ -44,4 +44,12 @@ class Phrase
     {
         return $this->text === self::STOP_WORD;
     }
+
+    /**
+     * @return string
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
 }
