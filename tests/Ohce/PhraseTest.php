@@ -35,4 +35,11 @@ class PhraseTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
+    public function testIsStop()
+    {
+        $phrase = new Phrase("stop");
+        $this->assertTrue($phrase->isStop());
+    }
+
+
 }

@@ -34,4 +34,12 @@ class Phrase
     {
         return $this->reverse() == $this;
     }
+
+    /**
+     * @return bool
+     */
+    public function isStop()
+    {
+        return true;
+    }
 }
