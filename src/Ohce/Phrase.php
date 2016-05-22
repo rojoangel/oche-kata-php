@@ -40,6 +40,6 @@ class Phrase
      */
     public function isStop()
     {
-        return true;
+        return $this->text === 'Stop!';
     }
 }
