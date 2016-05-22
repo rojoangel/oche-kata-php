@@ -20,6 +20,9 @@ class Ohce
     /** @var Clock */
     private $clock;
 
+    /** @var Greeter */
+    private $greeter;
+
     /**
      * @param string $name
      * @param Console $output
@@ -32,6 +35,7 @@ class Ohce
         $this->output = $output;
         $this->input = $input;
         $this->clock = $clock;
+        $this->greeter = new Greeter($clock);
     }
 
     public function run()
@@ -63,8 +67,7 @@ class Ohce
 
     private function greetUser()
     {
-        $greeting = $this->calculateGreeting($this->clock->getTime());
-        $this->output->writeLine(sprintf('¡%s %s!', $greeting, $this->name));
+        $this->output->writeLine($this->greeter->greetUser($this->name));
     }
 
     private function waveOffUser()
@@ -81,40 +84,5 @@ class Ohce
         if ($inputPhrase->isPalindrome()) {
             $this->writeOutput('¡Bonita palabra!');
         }
-    }
-
-    /**
-     * @param int $time
-     * @return bool
-     */
-    private function isMorning($time)
-    {
-        return $time >= 6 && $time < 12;
-    }
-
-    /**
-     * @param int $time
-     * @return bool
-     */
-    private function isNight($time)
-    {
-        return $time >= 20 || $time < 6;
-    }
-
-    /**
-     * @param int $time
-     * @return string
-     */
-    private function calculateGreeting($time)
-    {
-        if ($this->isMorning($time)) {
-            return 'Buenas días';
-        }
-
-        if ($this->isNight($time)) {
-            return 'Buenas noches';
-        }
-
-        return 'Buenas tardes';
     }
 }
