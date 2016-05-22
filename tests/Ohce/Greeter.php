@@ -25,6 +25,21 @@ class Greeter
      */
     public function greetUser($userName)
     {
-        return sprintf('¡Buenas días %s!', $userName);
+        $time = $this->clock->getTime();
+        if ($this->isMorning($time)) {
+            return sprintf('¡Buenas días %s!', $userName);
+        }
+
+        return sprintf('¡Buenas tardes %s!', $userName);
     }
+
+    /**
+     * @param int $time
+     * @return bool
+     */
+    private function isMorning($time)
+    {
+        return $time >= 6 && $time < 12;
+    }
+
 }
