@@ -6,6 +6,8 @@ namespace Ohce;
 
 class Phrase
 {
+    const STOP_WORD = 'Stop!';
+
     /**
      * @var string
      */
@@ -40,6 +42,6 @@ class Phrase
      */
     public function isStop()
     {
-        return $this->text === 'Stop!';
+        return $this->text === self::STOP_WORD;
     }
 }
