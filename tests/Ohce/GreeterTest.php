@@ -31,11 +31,13 @@ class GreeterTest extends \PHPUnit_Framework_TestCase
      */
     public function greetingsProvider() {
         return [
-            [6, 'Pedro', '¡Buenas días Pedro!'],
-            [9, 'Pedro', '¡Buenas días Pedro!'],
-            [11, 'Pedro', '¡Buenas días Pedro!'],
-            [13, 'Juan', '¡Buenas tardes Juan!'],
-            [22, 'Antonio', '¡Buenas noches Antonio!']
+            '6' => [6, 'Pedro', '¡Buenas días Pedro!'],
+            '9' => [9, 'Pedro', '¡Buenas días Pedro!'],
+            '11' => [11, 'Pedro', '¡Buenas días Pedro!'],
+            '12' => [12, 'Juan', '¡Buenas tardes Juan!'],
+            '13' => [13, 'Juan', '¡Buenas tardes Juan!'],
+            '19' => [19, 'Juan', '¡Buenas tardes Juan!'],
+            '22' => [22, 'Antonio', '¡Buenas noches Antonio!']
         ];
     }
 }
