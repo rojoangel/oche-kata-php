@@ -48,15 +48,6 @@ class Ohce
     }
 
     /**
-     * @param string $inputLine
-     * @return string
-     */
-    private function reverse($inputLine)
-    {
-        return strrev($inputLine);
-    }
-
-    /**
      * @return string
      */
     private function readInput()
@@ -72,26 +63,7 @@ class Ohce
     {
         $this->output->writeLine($reversed);
     }
-
-    /**
-     * @param string $inputLine
-     * @param string $reversed
-     * @return bool
-     */
-    private function isPalindrome($inputLine, $reversed)
-    {
-        return $inputLine === $reversed;
-    }
-
-    /**
-     * @param string $inputLine
-     * @return bool
-     */
-    private function isStop($inputLine)
-    {
-        return $inputLine === 'Stop!';
-    }
-
+    
     private function greetUser()
     {
         $greeting = $this->calculateGreeting($this->clock->getTime());
