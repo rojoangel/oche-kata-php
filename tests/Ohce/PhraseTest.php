@@ -51,7 +51,7 @@ class PhraseTest extends \PHPUnit_Framework_TestCase
      */
     public function isStopProvider() {
         return [
-            ['stop', true],
+            ['Stop!', true],
         ];
     }
 
