@@ -37,7 +37,9 @@ class GreeterTest extends \PHPUnit_Framework_TestCase
             '12' => [12, 'Juan', '¡Buenas tardes Juan!'],
             '13' => [13, 'Juan', '¡Buenas tardes Juan!'],
             '19' => [19, 'Juan', '¡Buenas tardes Juan!'],
-            '22' => [22, 'Antonio', '¡Buenas noches Antonio!']
+            '20' => [20, 'Antonio', '¡Buenas noches Antonio!'],
+            '22' => [22, 'Antonio', '¡Buenas noches Antonio!'],
+            '5' => [5, 'Antonio', '¡Buenas noches Antonio!'],
         ];
     }
 }
