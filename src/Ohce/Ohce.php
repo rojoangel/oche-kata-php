@@ -16,10 +16,7 @@ class Ohce
 
     /** @var Input */
     private $input;
-
-    /** @var Clock */
-    private $clock;
-
+    
     /** @var Greeter */
     private $greeter;
 
@@ -27,15 +24,14 @@ class Ohce
      * @param string $name
      * @param Console $output
      * @param Input $input
-     * @param Clock $clock
+     * @param Greeter $greeter
      */
-    public function __construct($name, Console $output, Input $input, Clock $clock)
+    public function __construct($name, Console $output, Input $input, Greeter $greeter)
     {
         $this->name = $name;
         $this->output = $output;
         $this->input = $input;
-        $this->clock = $clock;
-        $this->greeter = new Greeter($clock);
+        $this->greeter = $greeter;
     }
 
     public function run()

@@ -43,8 +43,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
         $clock->expects($this->once())
             ->method('getTime')
             ->willReturn(9);
+        $greeter = new Greeter($clock);
 
-        $ohce = new Ohce($name, $output, $input, $clock);
+        $ohce = new Ohce($name, $output, $input, $greeter);
         $ohce->run();
 
     }
@@ -84,8 +85,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
         $clock->expects($this->once())
             ->method('getTime')
             ->willReturn(13);
+        $greeter = new Greeter($clock);
 
-        $ohce = new Ohce($name, $output, $input, $clock);
+        $ohce = new Ohce($name, $output, $input, $greeter);
         $ohce->run();
 
     }
@@ -125,10 +127,10 @@ class OhceTest extends \PHPUnit_Framework_TestCase
         $clock->expects($this->once())
             ->method('getTime')
             ->willReturn(22);
+        $greeter = new Greeter($clock);
 
-        $ohce = new Ohce($name, $output, $input, $clock);
+        $ohce = new Ohce($name, $output, $input, $greeter);
         $ohce->run();
-
     }
 
 }
