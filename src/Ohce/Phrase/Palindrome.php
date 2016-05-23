@@ -7,21 +7,19 @@ namespace Ohce\Phrase;
 use Ohce\Console;
 use Ohce\Phrase;
 
-class StandardPhrase implements Phrase
+class Palindrome implements Phrase
 {
-    const STOP_WORD = 'Stop!';
+    /**
+     * @var Phrase
+     */
+    private $phrase;
 
     /**
-     * @var string
+     * @param Phrase $phrase
      */
-    private $text;
-
-    /**
-     * @param string $text
-     */
-    public function __construct($text)
+    public function __construct($phrase)
     {
-        $this->text = $text;
+        $this->phrase = $phrase;
     }
 
     /**
@@ -29,13 +27,7 @@ class StandardPhrase implements Phrase
      */
     public function reverse()
     {
-        return new StandardPhrase(strrev($this->text));
-    }
-
-
-    function __toString()
-    {
-        return sprintf("StandardPhrase { 'text': %s }, $this->text");
+        return $this->phrase->reverse();
     }
 
     /**
@@ -43,7 +35,7 @@ class StandardPhrase implements Phrase
      */
     public function isPalindrome()
     {
-        return $this->reverse() == $this;
+        return $this->phrase->isPalindrome();
     }
 
     /**
@@ -51,7 +43,7 @@ class StandardPhrase implements Phrase
      */
     public function isStop()
     {
-        return $this->text === self::STOP_WORD;
+        return $this->phrase->isStop();
     }
 
     /**
@@ -59,7 +51,7 @@ class StandardPhrase implements Phrase
      */
     public function getText()
     {
-        return $this->text;
+        return $this->phrase->getText();
     }
 
     /**
@@ -67,6 +59,7 @@ class StandardPhrase implements Phrase
      */
     public function notifyEcho(Console $console)
     {
-        $console->writeLine($this->reverse()->getText());
+        $this->phrase->notifyEcho($console);
+        $console->writeLine('¡Bonita palabra!');
     }
 }
