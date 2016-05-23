@@ -17,6 +17,9 @@ class PhraseReader
         $this->input = $input;
     }
 
+    /**
+     * @return Phrase
+     */
     public function read()
     {
         return new Phrase($this->input->readLine());
