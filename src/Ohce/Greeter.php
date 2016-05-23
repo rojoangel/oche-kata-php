@@ -77,4 +77,13 @@ class Greeter
         return $time >= 20 || $time < 6;
     }
 
+    /**
+     * @param string $userName
+     */
+    public function waveOffUser($userName)
+    {
+        $this->console->writeLine(sprintf('Adios %s', $userName));
+
+    }
+
 }

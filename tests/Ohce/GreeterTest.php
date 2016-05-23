@@ -47,4 +47,20 @@ class GreeterTest extends \PHPUnit_Framework_TestCase
             '5' => [5, 'Antonio', '¡Buenas noches Antonio!'],
         ];
     }
+
+    public function testWavesOffUser()
+    {
+        /** @var Clock|MockObject $clock */
+        $clock = $this->getMockBuilder(Clock::class)->getMock();
+
+        $console = new FakeConsole();
+
+        $greeter = new Greeter($clock, $console);
+        $greeter->waveOffUser("Pedro");
+
+        $this->assertEquals('Adios Pedro', $console->getLine());
+
+    }
+
+
 }
