@@ -10,10 +10,7 @@ class StopPhrase implements Phrase
 {
 
     const STOP_WORD = 'Stop!';
-
-    /** @var string */
-    private $text = 'Stop!';
-
+    
     /**
      * @param Console $console
      */
