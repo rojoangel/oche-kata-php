@@ -48,19 +48,32 @@ class GreeterTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    public function testWavesOffUser()
+    /**
+     * @dataProvider waveOffsProvider
+     * @param string$userName
+     */
+    public function testWavesOffUser($userName)
     {
-        /** @var Clock|MockObject $clock */
-        $clock = $this->getMockBuilder(Clock::class)->getMock();
+        /** @var Clock|MockObject $dummyClock */
+        $dummyClock = $this->getMockBuilder(Clock::class)->getMock();
 
         $console = new FakeConsole();
 
-        $greeter = new Greeter($clock, $console);
-        $greeter->waveOffUser("Pedro");
+        $greeter = new Greeter($dummyClock, $console);
+        $greeter->waveOffUser($userName);
 
-        $this->assertEquals('Adios Pedro', $console->getLine());
+        $this->assertEquals(sprintf('Adios %s', $userName), $console->getLine());
 
     }
 
-
+    /**
+     * @return array
+     */
+    public function waveOffsProvider() {
+        return [
+            'Pedro' => ['Pedro'],
+            'Juan' => ['Juan'],
+            'Antonio' => ['Antonio'],
+        ];
+    }
 }
