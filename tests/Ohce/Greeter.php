@@ -31,14 +31,14 @@ class Greeter
     {
 
         $time = $this->clock->getTime();
-        return $this->greetingFrom($time)->greet($userName);
+        return $this->greetingFor($time)->greet($userName);
     }
 
     /**
      * @param $time
      * @return Greeting
      */
-    private function greetingFrom($time)
+    private function greetingFor($time)
     {
         if ($this->isMorning($time)) {
             return new MorningGreeting();
