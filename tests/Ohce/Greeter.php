@@ -4,6 +4,7 @@
 namespace Ohce;
 
 
+use Ohce\Greeting\AfternoonGreeting;
 use Ohce\Greeting\MorningGreeting;
 use Ohce\Greeting\NightGreeting;
 
@@ -37,7 +38,7 @@ class Greeter
             return(new NightGreeting())->greet($userName);
         }
 
-        return sprintf('¡Buenas tardes %s!', $userName);
+        return(new AfternoonGreeting())->greet($userName);
     }
 
     /**
