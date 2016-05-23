@@ -66,7 +66,7 @@ class Ohce
 
     private function waveOffUser()
     {
-        $this->writeOutput(sprintf('Adios %s', $this->name));
+        $this->greeter->waveOffUser($this->name);
     }
 
     /**
