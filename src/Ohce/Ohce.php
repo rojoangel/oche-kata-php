@@ -19,8 +19,6 @@ class Ohce
      * @param string $name
      * @param Greeter $greeter
      * @param PhrasesReverser $phrasesReverser
-     * @internal param Console $output
-     * @internal param Input $input
      */
     public function __construct($name, Greeter $greeter, PhrasesReverser $phrasesReverser)
     {
