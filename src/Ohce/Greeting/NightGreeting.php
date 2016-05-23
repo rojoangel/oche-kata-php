@@ -4,16 +4,17 @@
 namespace Ohce\Greeting;
 
 
+use Ohce\Console;
 use Ohce\Greeting;
 
 class NightGreeting implements Greeting
 {
     /**
      * @param string $userName
-     * @return string
+     * @param Console $console
      */
-    public function greet($userName)
+    public function greet($userName, Console $console)
     {
-        return sprintf('¡Buenas noches %s!', $userName);
+        $console->writeLine(sprintf('¡Buenas noches %s!', $userName));
     }
 }

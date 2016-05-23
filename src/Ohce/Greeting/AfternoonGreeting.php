@@ -4,6 +4,7 @@
 namespace Ohce\Greeting;
 
 
+use Ohce\Console;
 use Ohce\Greeting;
 
 class AfternoonGreeting implements Greeting
@@ -11,10 +12,10 @@ class AfternoonGreeting implements Greeting
 
     /**
      * @param string $userName
-     * @return string
+     * @param Console $console
      */
-    public function greet($userName)
+    public function greet($userName, Console $console)
     {
-        return sprintf('¡Buenas tardes %s!', $userName);
+        $console->writeLine(sprintf('¡Buenas tardes %s!', $userName));
     }
 }

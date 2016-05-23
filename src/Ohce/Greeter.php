@@ -37,10 +37,8 @@ class Greeter
     public function greetUser($userName)
     {
 
-        $time = $this->clock->getTime();
-        $this->console->writeLine(
-            $this->greetingFor($time)->greet($userName)
-        );
+        $this->greetingFor($this->clock->getTime())
+            ->greet($userName, $this->console);
     }
 
     /**

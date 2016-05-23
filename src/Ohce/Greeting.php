@@ -9,7 +9,7 @@ interface Greeting
 
     /**
      * @param string $userName
-     * @return string
+     * @param Console $console
      */
-    public function greet($userName);
+    public function greet($userName, Console $console);
 }
