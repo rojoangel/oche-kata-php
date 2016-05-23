@@ -6,14 +6,7 @@ namespace Ohce\Phrase;
 
 class StandardPhraseTest extends \PHPUnit_Framework_TestCase
 {
-
-
-    public function testReverse()
-    {
-        $phrase = new StandardPhrase('abcdef');
-        $this->assertEquals(new StandardPhrase('fedcba'), $phrase->reverse());
-    }
-
+    
     /**
      * @dataProvider isPalindromeProvider
      * @param string $text

@@ -25,11 +25,11 @@ class StandardPhrase implements Phrase
     /**
      * @return StandardPhrase
      */
-    public function reverse()
+    private function reverse()
     {
         return new StandardPhrase(strrev($this->text));
     }
-    
+
     /**
      * @return bool
      */
