@@ -9,27 +9,22 @@ class Ohce
     /** @var string */
     private $name;
 
-    /** @var Console */
-    private $console;
-
-    /** @var Input */
-    private $input;
-    
     /** @var Greeter */
     private $greeter;
 
+    /** @var PhrasesReverser */
+    private $phrasesReverser;
+
     /**
      * @param string $name
-     * @param Console $output
-     * @param Input $input
      * @param Greeter $greeter
      * @param PhrasesReverser $phrasesReverser
+     * @internal param Console $output
+     * @internal param Input $input
      */
-    public function __construct($name, Console $output, Input $input, Greeter $greeter, PhrasesReverser $phrasesReverser)
+    public function __construct($name, Greeter $greeter, PhrasesReverser $phrasesReverser)
     {
         $this->name = $name;
-        $this->console = $output;
-        $this->input = $input;
         $this->greeter = $greeter;
         $this->phrasesReverser = $phrasesReverser;
     }

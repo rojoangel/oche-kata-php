@@ -48,7 +48,7 @@ class OhceTest extends \PHPUnit_Framework_TestCase
 
         $phrasesReverser = new PhrasesReverser($input, $console);
 
-        $ohce = new Ohce($name, $console, $input, $greeter, $phrasesReverser);
+        $ohce = new Ohce($name, $greeter, $phrasesReverser);
         $ohce->run();
 
     }
@@ -92,7 +92,7 @@ class OhceTest extends \PHPUnit_Framework_TestCase
 
         $phrasesReverser = new PhrasesReverser($input, $console);
 
-        $ohce = new Ohce($name, $console, $input, $greeter, $phrasesReverser);
+        $ohce = new Ohce($name, $greeter, $phrasesReverser);
         $ohce->run();
 
     }
@@ -136,7 +136,7 @@ class OhceTest extends \PHPUnit_Framework_TestCase
 
         $phrasesReverser = new PhrasesReverser($input, $console);
 
-        $ohce = new Ohce($name, $console, $input, $greeter, $phrasesReverser);
+        $ohce = new Ohce($name, $greeter, $phrasesReverser);
         $ohce->run();
     }
 
