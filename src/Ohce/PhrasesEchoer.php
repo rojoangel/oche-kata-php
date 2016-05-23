@@ -4,7 +4,7 @@
 namespace Ohce;
 
 
-class PhrasesReverser
+class PhrasesEchoer
 {
 
     /** @var Console */
@@ -24,14 +24,12 @@ class PhrasesReverser
     }
 
 
-    public function reversePhrases()
+    public function echoPhrases()
     {
-        while ($inputPhrase = $this->readPhrase()) {
-            if($inputPhrase->isStop()) {
-                break;
-            }
-            $this->writeReversedPhrase($inputPhrase);
-        }
+        do {
+            $inputPhrase = $this->readPhrase();
+            $this->echoPhrase($inputPhrase);
+        } while (!$inputPhrase->isStop());
     }
 
     /**
@@ -45,7 +43,7 @@ class PhrasesReverser
     /**
      * @param Phrase $inputPhrase
      */
-    private function writeReversedPhrase(Phrase $inputPhrase)
+    private function echoPhrase(Phrase $inputPhrase)
     {
         $inputPhrase->notifyEcho($this->console);
     }
