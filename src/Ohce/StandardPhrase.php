@@ -4,7 +4,7 @@
 namespace Ohce;
 
 
-class Phrase
+class StandardPhrase
 {
     const STOP_WORD = 'Stop!';
 
@@ -23,13 +23,13 @@ class Phrase
 
     public function reverse()
     {
-        return new Phrase(strrev($this->text));
+        return new StandardPhrase(strrev($this->text));
     }
 
 
     function __toString()
     {
-        return sprintf("Phrase { 'text': %s }, $this->text");
+        return sprintf("StandardPhrase { 'text': %s }, $this->text");
     }
 
     public function isPalindrome()

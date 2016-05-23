@@ -18,10 +18,10 @@ class PhraseReader
     }
 
     /**
-     * @return Phrase
+     * @return StandardPhrase
      */
     public function read()
     {
-        return new Phrase($this->input->readLine());
+        return new StandardPhrase($this->input->readLine());
     }
 }

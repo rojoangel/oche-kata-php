@@ -10,8 +10,8 @@ class PhraseTest extends \PHPUnit_Framework_TestCase
 
     public function testReverse()
     {
-        $phrase = new Phrase('abcdef');
-        $this->assertEquals(new Phrase('fedcba'), $phrase->reverse());
+        $phrase = new StandardPhrase('abcdef');
+        $this->assertEquals(new StandardPhrase('fedcba'), $phrase->reverse());
     }
 
     /**
@@ -21,7 +21,7 @@ class PhraseTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsPalindrome($text, $expectedIsPalindrome)
     {
-        $phrase = new Phrase($text);
+        $phrase = new StandardPhrase($text);
         $this->assertEquals($expectedIsPalindrome, $phrase->isPalindrome());
     }
 
@@ -42,7 +42,7 @@ class PhraseTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsStop($text, $expectedIsStop)
     {
-        $phrase = new Phrase($text);
+        $phrase = new StandardPhrase($text);
         $this->assertEquals($expectedIsStop, $phrase->isStop());
     }
 
