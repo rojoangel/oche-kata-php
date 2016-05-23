@@ -63,7 +63,7 @@ class Ohce
 
     private function greetUser()
     {
-        $this->output->writeLine($this->greeter->greetUser($this->name));
+        $this->writeOutput($this->greeter->greetUser($this->name));
     }
 
     private function waveOffUser()
