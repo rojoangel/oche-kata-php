@@ -30,6 +30,7 @@ class Ohce
         $this->console = $output;
         $this->input = $input;
         $this->greeter = $greeter;
+        $this->phrasesReverser = new PhrasesReverser($input, $output);
     }
 
     public function run()
@@ -78,10 +79,6 @@ class Ohce
 
     private function reversePhrases()
     {
-        $inputPhrase = $this->readPhrase();
-        while (!$inputPhrase->isStop()) {
-            $this->writeReversedPhrase($inputPhrase);
-            $inputPhrase = $this->readPhrase();
-        }
+        $this->phrasesReverser->reversePhrases();
     }
 }
