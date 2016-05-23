@@ -10,11 +10,6 @@ interface Phrase
     public function notifyEcho(Console $console);
     
     /**
-     * @return Phrase
-     */
-    public function reverse();
-
-    /**
      * @return bool
      */
     public function isPalindrome();

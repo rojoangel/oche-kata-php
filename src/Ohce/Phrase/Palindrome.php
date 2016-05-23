@@ -10,32 +10,24 @@ use Ohce\Phrase;
 class Palindrome implements Phrase
 {
     /**
-     * @var Phrase
+     * @var StandardPhrase
      */
-    private $phrase;
+    private $standardPhrase;
 
     /**
-     * @param Phrase $phrase
+     * @param StandardPhrase $standardPhrase
      */
-    public function __construct($phrase)
+    public function __construct(StandardPhrase $standardPhrase)
     {
-        $this->phrase = $phrase;
+        $this->standardPhrase = $standardPhrase;
     }
-
-    /**
-     * @return Phrase
-     */
-    public function reverse()
-    {
-        return $this->phrase->reverse();
-    }
-
+    
     /**
      * @return bool
      */
     public function isPalindrome()
     {
-        return $this->phrase->isPalindrome();
+        return $this->standardPhrase->isPalindrome();
     }
 
     /**
@@ -43,7 +35,7 @@ class Palindrome implements Phrase
      */
     public function isStop()
     {
-        return $this->phrase->isStop();
+        return $this->standardPhrase->isStop();
     }
 
     /**
@@ -51,7 +43,7 @@ class Palindrome implements Phrase
      */
     public function getText()
     {
-        return $this->phrase->getText();
+        return $this->standardPhrase->getText();
     }
 
     /**
@@ -59,7 +51,7 @@ class Palindrome implements Phrase
      */
     public function notifyEcho(Console $console)
     {
-        $this->phrase->notifyEcho($console);
+        $this->standardPhrase->notifyEcho($console);
         $console->writeLine('¡Bonita palabra!');
     }
 }
