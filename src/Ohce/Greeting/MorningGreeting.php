@@ -8,21 +8,12 @@ use Ohce\Greeting;
 
 class MorningGreeting implements Greeting
 {
-    private $userName;
-
     /**
-     * @param $userName
-     */
-    public function __construct($userName)
-    {
-        $this->userName = $userName;
-    }
-
-    /**
+     * @param string $userName
      * @return string
      */
-    public function greet()
+    public function greet($userName)
     {
-        return sprintf('¡Buenas días %s!', $this->userName);
+        return sprintf('¡Buenas días %s!', $userName);
     }
 }

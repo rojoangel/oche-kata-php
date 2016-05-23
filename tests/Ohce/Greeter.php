@@ -30,11 +30,11 @@ class Greeter
     {
         $time = $this->clock->getTime();
         if ($this->isMorning($time)) {
-            return (new MorningGreeting($userName))->greet();
+            return (new MorningGreeting())->greet($userName);
         }
 
         if ($this->isNight($time)) {
-            return(new NightGreeting($userName))->greet();
+            return(new NightGreeting())->greet($userName);
         }
 
         return sprintf('¡Buenas tardes %s!', $userName);
