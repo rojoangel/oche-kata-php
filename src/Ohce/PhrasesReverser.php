@@ -12,6 +12,9 @@ class PhrasesReverser
     /** @var Console */
     private $console;
 
+    /** @var PhraseReader */
+    private $phraseReader;
+
     /**
      * @param Input $input
      * @param Console $console
@@ -20,6 +23,7 @@ class PhrasesReverser
     {
         $this->input = $input;
         $this->console = $console;
+        $this->phraseReader = new PhraseReader($input);
     }
 
 
@@ -38,7 +42,7 @@ class PhrasesReverser
      */
     private function readPhrase()
     {
-        return new Phrase($this->input->readLine());
+        return $this->phraseReader->read();
     }
 
     /**
