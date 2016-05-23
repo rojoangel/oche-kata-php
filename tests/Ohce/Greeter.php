@@ -29,16 +29,25 @@ class Greeter
      */
     public function greetUser($userName)
     {
+
         $time = $this->clock->getTime();
+        return $this->greetingFrom($time)->greet($userName);
+    }
+
+    /**
+     * @param $time
+     * @return Greeting
+     */
+    private function greetingFrom($time)
+    {
         if ($this->isMorning($time)) {
-            return (new MorningGreeting())->greet($userName);
+            return new MorningGreeting();
         }
 
         if ($this->isNight($time)) {
-            return(new NightGreeting())->greet($userName);
+            return new NightGreeting();
         }
-
-        return(new AfternoonGreeting())->greet($userName);
+        return new AfternoonGreeting();
     }
 
     /**
