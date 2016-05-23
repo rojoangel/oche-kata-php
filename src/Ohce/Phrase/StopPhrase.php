@@ -8,14 +8,17 @@ use Ohce\Phrase;
 
 class StopPhrase implements Phrase
 {
-    private $text;
+    /**
+     * @var StandardPhrase
+     */
+    private $standardPhrase;
 
     /**
-     * StopPhrase constructor.
+     * @param StandardPhrase $standardPhrase
      */
-    public function __construct()
+    public function __construct(StandardPhrase $standardPhrase)
     {
-        $this->text = 'Stop!';
+        $this->standardPhrase = $standardPhrase;
     }
 
     /**
@@ -31,6 +34,6 @@ class StopPhrase implements Phrase
      */
     public function isStop()
     {
-        return true;
+        return $this->standardPhrase->isStop();
     }
 }

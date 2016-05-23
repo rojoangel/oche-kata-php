@@ -28,7 +28,7 @@ class PhraseReader
     {
         $phrase = new StandardPhrase($this->input->readLine());
         if ($phrase->isStop()) {
-            return new StopPhrase();
+            return new StopPhrase($phrase);
         }
         if ($phrase->isPalindrome()) {
             return new Palindrome($phrase);
