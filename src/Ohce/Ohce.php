@@ -13,18 +13,18 @@ class Ohce
     private $greeter;
 
     /** @var PhrasesEchoer */
-    private $phrasesReverser;
+    private $phrasesEchoer;
 
     /**
      * @param string $name
      * @param Greeter $greeter
-     * @param PhrasesEchoer $phrasesReverser
+     * @param PhrasesEchoer $phrasesEchoer
      */
-    public function __construct($name, Greeter $greeter, PhrasesEchoer $phrasesReverser)
+    public function __construct($name, Greeter $greeter, PhrasesEchoer $phrasesEchoer)
     {
         $this->name = $name;
         $this->greeter = $greeter;
-        $this->phrasesReverser = $phrasesReverser;
+        $this->phrasesEchoer = $phrasesEchoer;
     }
 
     public function run()
@@ -46,6 +46,6 @@ class Ohce
 
     private function reversePhrases()
     {
-        $this->phrasesReverser->echoPhrases();
+        $this->phrasesEchoer->echoPhrases();
     }
 }
