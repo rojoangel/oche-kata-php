@@ -35,10 +35,10 @@ class Ohce
     public function run()
     {
         $this->greetUser();
-        $inputPhrase = $this->readInput();
+        $inputPhrase = $this->readPhrase();
         while (!$inputPhrase->isStop()) {
-            $this->writeReversedInput($inputPhrase);
-            $inputPhrase = $this->readInput();
+            $this->writeReversedPhrase($inputPhrase);
+            $inputPhrase = $this->readPhrase();
         }
         $this->waveOffUser();
     }
@@ -46,7 +46,7 @@ class Ohce
     /**
      * @return Phrase
      */
-    private function readInput()
+    private function readPhrase()
     {
         return new Phrase($this->input->readLine());
     }
@@ -72,7 +72,7 @@ class Ohce
     /**
      * @param Phrase $inputPhrase
      */
-    private function writeReversedInput(Phrase $inputPhrase)
+    private function writeReversedPhrase(Phrase $inputPhrase)
     {
         $this->writeOutput($inputPhrase->reverse()->getText());
         if ($inputPhrase->isPalindrome()) {
