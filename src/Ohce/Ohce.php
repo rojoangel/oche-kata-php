@@ -40,22 +40,6 @@ class Ohce
         $this->waveOffUser();
     }
 
-    /**
-     * @return Phrase
-     */
-    private function readPhrase()
-    {
-        return new Phrase($this->input->readLine());
-    }
-
-    /**
-     * @param string $output
-     */
-    private function writeOutput($output)
-    {
-        $this->console->writeLine($output);
-    }
-
     private function greetUser()
     {
         $this->greeter->greetUser($this->name);
@@ -64,17 +48,6 @@ class Ohce
     private function waveOffUser()
     {
         $this->greeter->waveOffUser($this->name);
-    }
-
-    /**
-     * @param Phrase $inputPhrase
-     */
-    private function writeReversedPhrase(Phrase $inputPhrase)
-    {
-        $this->writeOutput($inputPhrase->reverse()->getText());
-        if ($inputPhrase->isPalindrome()) {
-            $this->writeOutput('¡Bonita palabra!');
-        }
     }
 
     private function reversePhrases()
