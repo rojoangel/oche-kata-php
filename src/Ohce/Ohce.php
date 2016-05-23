@@ -9,9 +9,7 @@ class Ohce
     /** @var string */
     private $name;
 
-    /**
-     * @var Console
-     */
+    /** @var Console */
     private $output;
 
     /** @var Input */
@@ -63,7 +61,7 @@ class Ohce
 
     private function greetUser()
     {
-        $this->writeOutput($this->greeter->greetUser($this->name));
+        $this->greeter->greetUser($this->name);
     }
 
     private function waveOffUser()

@@ -14,13 +14,20 @@ class Greeter
      * @var Clock
      */
     private $clock;
+    
+    /**
+     * @var Console
+     */
+    private $console;
 
     /**
      * @param Clock $clock
+     * @param Console $console
      */
-    public function __construct(Clock $clock)
+    public function __construct(Clock $clock, Console $console)
     {
         $this->clock = $clock;
+        $this->console = $console;
     }
 
     /**
@@ -31,7 +38,9 @@ class Greeter
     {
 
         $time = $this->clock->getTime();
-        return $this->greetingFor($time)->greet($userName);
+        $this->console->writeLine(
+            $this->greetingFor($time)->greet($userName)
+        );
     }
 
     /**

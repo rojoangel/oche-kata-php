@@ -3,6 +3,7 @@
 
 namespace Ohce;
 
+use Ohce\Console\FakeConsole;
 use PHPUnit_Framework_MockObject_MockObject as MockObject;
 
 class GreeterTest extends \PHPUnit_Framework_TestCase
@@ -22,8 +23,12 @@ class GreeterTest extends \PHPUnit_Framework_TestCase
             ->method('getTime')
             ->willReturn($time);
 
-        $greeter = new Greeter($clock);
-        $this->assertEquals($expectedGreeting, $greeter->greetUser($userName));
+        $console = new FakeConsole();
+
+        $greeter = new Greeter($clock, $console);
+        $greeter->greetUser($userName);
+
+        $this->assertEquals($expectedGreeting, $console->getLine());
     }
 
     /**
