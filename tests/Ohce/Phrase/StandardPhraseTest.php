@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Ohce;
+namespace Ohce\Phrase;
 
 
-class PhraseTest extends \PHPUnit_Framework_TestCase
+class StandardPhraseTest extends \PHPUnit_Framework_TestCase
 {
 
 

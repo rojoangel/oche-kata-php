@@ -4,6 +4,8 @@
 namespace Ohce;
 
 
+use Ohce\Phrase\StandardPhrase;
+
 class PhraseReader
 {
     /** @var Input */
@@ -18,7 +20,7 @@ class PhraseReader
     }
 
     /**
-     * @return StandardPhrase
+     * @return Phrase
      */
     public function read()
     {

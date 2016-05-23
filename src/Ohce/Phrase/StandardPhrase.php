@@ -1,10 +1,12 @@
 <?php
 
 
-namespace Ohce;
+namespace Ohce\Phrase;
 
 
-class StandardPhrase
+use Ohce\Phrase;
+
+class StandardPhrase implements Phrase
 {
     const STOP_WORD = 'Stop!';
 
@@ -21,6 +23,9 @@ class StandardPhrase
         $this->text = $text;
     }
 
+    /**
+     * @return Phrase
+     */
     public function reverse()
     {
         return new StandardPhrase(strrev($this->text));
@@ -32,6 +37,9 @@ class StandardPhrase
         return sprintf("StandardPhrase { 'text': %s }, $this->text");
     }
 
+    /**
+     * @return bool
+     */
     public function isPalindrome()
     {
         return $this->reverse() == $this;

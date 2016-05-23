@@ -35,7 +35,7 @@ class PhrasesReverser
     }
 
     /**
-     * @return StandardPhrase
+     * @return Phrase
      */
     private function readPhrase()
     {
@@ -43,9 +43,9 @@ class PhrasesReverser
     }
 
     /**
-     * @param StandardPhrase $inputPhrase
+     * @param Phrase $inputPhrase
      */
-    private function writeReversedPhrase(StandardPhrase $inputPhrase)
+    private function writeReversedPhrase(Phrase $inputPhrase)
     {
         $this->writeOutput($inputPhrase->reverse()->getText());
         if ($inputPhrase->isPalindrome()) {
