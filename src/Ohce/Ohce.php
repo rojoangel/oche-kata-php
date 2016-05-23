@@ -30,7 +30,7 @@ class Ohce
     public function run()
     {
         $this->greetUser();
-        $this->reversePhrases();
+        $this->echoPhrases();
         $this->waveOffUser();
     }
 
@@ -44,7 +44,7 @@ class Ohce
         $this->greeter->waveOffUser($this->name);
     }
 
-    private function reversePhrases()
+    private function echoPhrases()
     {
         $this->phrasesEchoer->echoPhrases();
     }
