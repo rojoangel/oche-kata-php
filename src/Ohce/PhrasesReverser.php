@@ -47,17 +47,6 @@ class PhrasesReverser
      */
     private function writeReversedPhrase(Phrase $inputPhrase)
     {
-        $this->writeOutput($inputPhrase->reverse()->getText());
-        if ($inputPhrase->isPalindrome()) {
-            $this->writeOutput('¡Bonita palabra!');
-        }
-    }
-
-    /**
-     * @param string $output
-     */
-    private function writeOutput($output)
-    {
-        $this->console->writeLine($output);
+        $inputPhrase->notifyEcho($this->console);
     }
 }
