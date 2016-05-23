@@ -6,6 +6,7 @@ namespace Ohce;
 
 use Ohce\Phrase\Palindrome;
 use Ohce\Phrase\StandardPhrase;
+use Ohce\Phrase\StopPhrase;
 
 class PhraseReader
 {
@@ -26,6 +27,9 @@ class PhraseReader
     public function read()
     {
         $phrase = new StandardPhrase($this->input->readLine());
+        if ($phrase->isStop()) {
+            return new StopPhrase();
+        }
         if ($phrase->isPalindrome()) {
             return new Palindrome($phrase);
         }
