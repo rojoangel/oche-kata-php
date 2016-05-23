@@ -25,7 +25,7 @@ class StandardPhrase implements Phrase
     }
 
     /**
-     * @return Phrase
+     * @return StandardPhrase
      */
     public function reverse()
     {

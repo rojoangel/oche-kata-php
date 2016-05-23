@@ -31,14 +31,6 @@ class Palindrome implements Phrase
     }
 
     /**
-     * @return string
-     */
-    public function getText()
-    {
-        return $this->standardPhrase->getText();
-    }
-
-    /**
      * @param Console $console
      */
     public function notifyEcho(Console $console)

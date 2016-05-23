@@ -14,8 +14,4 @@ interface Phrase
      */
     public function isStop();
 
-    /**
-     * @return string
-     */
-    public function getText();
 }
