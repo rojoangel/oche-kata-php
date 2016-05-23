@@ -25,9 +25,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
                 'Stop!'
             );
 
-        /** @var Console|MockObject $output */
-        $output = $this->getMockBuilder(Console::class)->getMock();
-        $output->expects($this->exactly(6))
+        /** @var Console|MockObject $console */
+        $console = $this->getMockBuilder(Console::class)->getMock();
+        $console->expects($this->exactly(6))
             ->method("writeLine")
             ->withConsecutive(
                 [$this->equalTo(sprintf("¡Buenas días %s!", $name))],
@@ -43,9 +43,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
         $clock->expects($this->once())
             ->method('getTime')
             ->willReturn(9);
-        $greeter = new Greeter($clock, $output);
+        $greeter = new Greeter($clock, $console);
 
-        $ohce = new Ohce($name, $output, $input, $greeter);
+        $ohce = new Ohce($name, $console, $input, $greeter);
         $ohce->run();
 
     }
@@ -66,9 +66,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
                 'Stop!'
             );
 
-        /** @var Console|MockObject $output */
-        $output = $this->getMockBuilder(Console::class)->getMock();
-        $output->expects($this->exactly(7))
+        /** @var Console|MockObject $console */
+        $console = $this->getMockBuilder(Console::class)->getMock();
+        $console->expects($this->exactly(7))
             ->method("writeLine")
             ->withConsecutive(
                 [$this->equalTo(sprintf("¡Buenas tardes %s!", $name))],
@@ -85,9 +85,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
         $clock->expects($this->once())
             ->method('getTime')
             ->willReturn(13);
-        $greeter = new Greeter($clock, $output);
+        $greeter = new Greeter($clock, $console);
 
-        $ohce = new Ohce($name, $output, $input, $greeter);
+        $ohce = new Ohce($name, $console, $input, $greeter);
         $ohce->run();
 
     }
@@ -108,9 +108,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
                 'Stop!'
             );
 
-        /** @var Console|MockObject $output */
-        $output = $this->getMockBuilder(Console::class)->getMock();
-        $output->expects($this->exactly(7))
+        /** @var Console|MockObject $console */
+        $console = $this->getMockBuilder(Console::class)->getMock();
+        $console->expects($this->exactly(7))
             ->method("writeLine")
             ->withConsecutive(
                 [$this->equalTo(sprintf("¡Buenas noches %s!", $name))],
@@ -127,9 +127,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
         $clock->expects($this->once())
             ->method('getTime')
             ->willReturn(22);
-        $greeter = new Greeter($clock, $output);
+        $greeter = new Greeter($clock, $console);
 
-        $ohce = new Ohce($name, $output, $input, $greeter);
+        $ohce = new Ohce($name, $console, $input, $greeter);
         $ohce->run();
     }
 

@@ -10,7 +10,7 @@ class Ohce
     private $name;
 
     /** @var Console */
-    private $output;
+    private $console;
 
     /** @var Input */
     private $input;
@@ -27,7 +27,7 @@ class Ohce
     public function __construct($name, Console $output, Input $input, Greeter $greeter)
     {
         $this->name = $name;
-        $this->output = $output;
+        $this->console = $output;
         $this->input = $input;
         $this->greeter = $greeter;
     }
@@ -56,7 +56,7 @@ class Ohce
      */
     private function writeOutput($output)
     {
-        $this->output->writeLine($output);
+        $this->console->writeLine($output);
     }
 
     private function greetUser()
