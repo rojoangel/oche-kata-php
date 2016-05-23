@@ -6,8 +6,6 @@ namespace Ohce;
 
 class PhrasesReverser
 {
-    /** @var Input */
-    private $input;
 
     /** @var Console */
     private $console;
@@ -16,14 +14,13 @@ class PhrasesReverser
     private $phraseReader;
 
     /**
-     * @param Input $input
      * @param Console $console
+     * @param PhraseReader $phraseReader
      */
-    public function __construct(Input $input, Console $console)
+    public function __construct(Console $console, PhraseReader $phraseReader)
     {
-        $this->input = $input;
         $this->console = $console;
-        $this->phraseReader = new PhraseReader($input);
+        $this->phraseReader = $phraseReader;
     }
 
 
