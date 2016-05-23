@@ -25,14 +25,6 @@ class Palindrome implements Phrase
     /**
      * @return bool
      */
-    public function isPalindrome()
-    {
-        return $this->standardPhrase->isPalindrome();
-    }
-
-    /**
-     * @return bool
-     */
     public function isStop()
     {
         return $this->standardPhrase->isStop();

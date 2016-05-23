@@ -12,11 +12,6 @@ interface Phrase
     /**
      * @return bool
      */
-    public function isPalindrome();
-
-    /**
-     * @return bool
-     */
     public function isStop();
 
     /**
