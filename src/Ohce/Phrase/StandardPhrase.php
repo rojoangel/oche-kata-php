@@ -9,8 +9,6 @@ use Ohce\Phrase;
 
 class StandardPhrase implements Phrase
 {
-    const STOP_WORD = 'Stop!';
-
     /**
      * @var string
      */
@@ -45,15 +43,7 @@ class StandardPhrase implements Phrase
     {
         return $this->reverse() == $this;
     }
-
-    /**
-     * @return bool
-     */
-    public function isStop()
-    {
-        return $this->text === self::STOP_WORD;
-    }
-
+    
     /**
      * @return string
      */

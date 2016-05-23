@@ -34,18 +34,7 @@ class StandardPhraseTest extends \PHPUnit_Framework_TestCase
             ['oto', true]
         ];
     }
-
-    /**
-     * @dataProvider isStopProvider
-     * @param $text
-     * @param $expectedIsStop
-     */
-    public function testIsStop($text, $expectedIsStop)
-    {
-        $phrase = new StandardPhrase($text);
-        $this->assertEquals($expectedIsStop, $phrase->isStop());
-    }
-
+    
     /**
      * @return array
      */

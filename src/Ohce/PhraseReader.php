@@ -26,10 +26,11 @@ class PhraseReader
      */
     public function read()
     {
-        $phrase = new StandardPhrase($this->input->readLine());
-        if ($phrase->isStop()) {
+        $line = $this->input->readLine();
+        if ($line === StopPhrase::STOP_WORD) {
             return new StopPhrase();
         }
+        $phrase = new StandardPhrase($line);
         if ($phrase->isPalindrome()) {
             return new Palindrome($phrase);
         }
