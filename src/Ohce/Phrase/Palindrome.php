@@ -23,14 +23,6 @@ class Palindrome implements Phrase
     }
     
     /**
-     * @return bool
-     */
-    public function isStop()
-    {
-        return $this->standardPhrase->isStop();
-    }
-
-    /**
      * @param Console $console
      */
     public function notifyEcho(Console $console)

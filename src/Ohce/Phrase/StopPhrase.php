@@ -19,12 +19,4 @@ class StopPhrase implements Phrase
     {
         // do nothing
     }
-
-    /**
-     * @return bool
-     */
-    public function isStop()
-    {
-        return true;
-    }
 }

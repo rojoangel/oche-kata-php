@@ -4,6 +4,8 @@
 namespace Ohce;
 
 
+use Ohce\Phrase\StopPhrase;
+
 class PhrasesEchoer
 {
 
@@ -29,7 +31,7 @@ class PhrasesEchoer
         do {
             $inputPhrase = $this->readPhrase();
             $this->echoPhrase($inputPhrase);
-        } while (!$inputPhrase->isStop());
+        } while ($inputPhrase != new StopPhrase());
     }
 
     /**
