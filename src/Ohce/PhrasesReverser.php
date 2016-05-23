@@ -25,10 +25,11 @@ class PhrasesReverser
 
     public function reversePhrases()
     {
-        $inputPhrase = $this->readPhrase();
-        while (!$inputPhrase->isStop()) {
+        while ($inputPhrase = $this->readPhrase()) {
+            if($inputPhrase->isStop()) {
+                break;
+            }
             $this->writeReversedPhrase($inputPhrase);
-            $inputPhrase = $this->readPhrase();
         }
     }
 
