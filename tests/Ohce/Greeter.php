@@ -4,6 +4,8 @@
 namespace Ohce;
 
 
+use Ohce\Greeting\MorningGreeting;
+
 class Greeter
 {
     /**
@@ -27,7 +29,7 @@ class Greeter
     {
         $time = $this->clock->getTime();
         if ($this->isMorning($time)) {
-            return sprintf('¡Buenas días %s!', $userName);
+            return (new MorningGreeting($userName))->greet();
         }
 
         if ($this->isNight($time)) {
