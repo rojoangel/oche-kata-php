@@ -29,13 +29,7 @@ class StandardPhrase implements Phrase
     {
         return new StandardPhrase(strrev($this->text));
     }
-
-
-    function __toString()
-    {
-        return sprintf("StandardPhrase { 'text': %s }, $this->text");
-    }
-
+    
     /**
      * @return bool
      */
