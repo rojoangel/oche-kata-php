@@ -23,14 +23,15 @@ class Ohce
      * @param Console $output
      * @param Input $input
      * @param Greeter $greeter
+     * @param PhrasesReverser $phrasesReverser
      */
-    public function __construct($name, Console $output, Input $input, Greeter $greeter)
+    public function __construct($name, Console $output, Input $input, Greeter $greeter, PhrasesReverser $phrasesReverser)
     {
         $this->name = $name;
         $this->console = $output;
         $this->input = $input;
         $this->greeter = $greeter;
-        $this->phrasesReverser = new PhrasesReverser($input, $output);
+        $this->phrasesReverser = $phrasesReverser;
     }
 
     public function run()

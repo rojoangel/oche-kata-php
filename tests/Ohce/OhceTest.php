@@ -43,9 +43,12 @@ class OhceTest extends \PHPUnit_Framework_TestCase
         $clock->expects($this->once())
             ->method('getTime')
             ->willReturn(9);
+
         $greeter = new Greeter($clock, $console);
 
-        $ohce = new Ohce($name, $console, $input, $greeter);
+        $phrasesReverser = new PhrasesReverser($input, $console);
+
+        $ohce = new Ohce($name, $console, $input, $greeter, $phrasesReverser);
         $ohce->run();
 
     }
@@ -87,7 +90,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
             ->willReturn(13);
         $greeter = new Greeter($clock, $console);
 
-        $ohce = new Ohce($name, $console, $input, $greeter);
+        $phrasesReverser = new PhrasesReverser($input, $console);
+
+        $ohce = new Ohce($name, $console, $input, $greeter, $phrasesReverser);
         $ohce->run();
 
     }
@@ -129,7 +134,9 @@ class OhceTest extends \PHPUnit_Framework_TestCase
             ->willReturn(22);
         $greeter = new Greeter($clock, $console);
 
-        $ohce = new Ohce($name, $console, $input, $greeter);
+        $phrasesReverser = new PhrasesReverser($input, $console);
+
+        $ohce = new Ohce($name, $console, $input, $greeter, $phrasesReverser);
         $ohce->run();
     }
 
