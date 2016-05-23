@@ -6,7 +6,7 @@ namespace Ohce\Phrase;
 
 class StandardPhraseTest extends \PHPUnit_Framework_TestCase
 {
-    
+
     /**
      * @dataProvider isPalindromeProvider
      * @param string $text
@@ -25,16 +25,6 @@ class StandardPhraseTest extends \PHPUnit_Framework_TestCase
         return [
             ['abcdef', false],
             ['oto', true]
-        ];
-    }
-    
-    /**
-     * @return array
-     */
-    public function isStopProvider() {
-        return [
-            ['Stop!', true],
-            ['stop', false]
         ];
     }
 }
